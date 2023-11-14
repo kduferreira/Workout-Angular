@@ -20,11 +20,11 @@ export class SmallCardComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit() {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
       breakpoints: {
-        "(min-width: 400px)": {
-          slides: { perView: 2, spacing: 5 },
-        },
-        "(min-width: 1000px)": {
+        "(min-width: 100px)": {
           slides: { perView: 3, spacing: 10 },
+        },
+        "(min-width: 400px)": {
+          slides: { perView: 5.5, spacing: 40 },
         },
       },
       slides: { perView: 1 },
