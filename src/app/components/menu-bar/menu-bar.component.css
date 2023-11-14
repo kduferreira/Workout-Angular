@@ -1,0 +1,41 @@
+.container__menu-bar {
+  margin-left: 10%;
+  margin-right: 10%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+
+.menu-bar__optionals >  ul >   li {
+  display: flex;
+  margin-right: 40px;
+  font-family: 'Poppins', sans-serif;
+  flex-direction: row;
+
+
+
+}
+.menu-bar__optionals  > ul   {
+  display: flex;
+  flex-direction: row;
+}
+.menu-bar__optionals  > ul > li > a   {
+text-decoration: none;
+color: #656565;
+}
+.menu-bar__optionals  > ul > li > a:hover   {
+
+color: #FFFFFF;
+}
