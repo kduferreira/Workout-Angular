@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
-import KeenSlider, { KeenSliderInstance } from "keen-slider"
-
+import { Component, ElementRef, OnDestroy, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
+import KeenSlider, { KeenSliderInstance } from "keen-slider";
+import { dataFake } from 'src/app/data/dataFake';
 @Component({
   selector: 'app-big-card',
   templateUrl: './big-card.component.html',
@@ -10,92 +10,89 @@ import KeenSlider, { KeenSliderInstance } from "keen-slider"
 
 })
 export class BigCardComponent implements OnDestroy {
-@ViewChild("sliderRef") sliderRef!: ElementRef<HTMLElement>
+  @ViewChild("sliderRef") sliderRef!: ElementRef<HTMLElement>;
 
- slider: KeenSliderInstance | null   = null;
+  slider: KeenSliderInstance | null = null;
+  @Input() photoCover: string = '';
+  @Input() contentTitle: string = '';
+  @Input() contentDescription: string = '';
+  @Input() activeSlideIndex: number = 0; // Adicionado para controlar o índice ativo
 
+  slideContent = dataFake;
+  private id: string | null = '0';
 
- slideContent = [
-  {
-    title: "Cardio Exercise",
-    description: "Cardio Exercise é uma forma dinâmica de atividade física...",
-    image: "../../assets/background.png"
-  },
-  {
-    title: "Desperte sua Força Interior: Musculação Feita para Elas",
-    description: "Descubra o poder da musculação projetada especialmente para mulheres. Este é o seu convite para fortalecer corpo e mente, esculpir uma versão mais resistente e confiante de si mesma. Conquiste a força, a graça e a determinação que existem dentro de você através de um programa de musculação adaptado ao seu estilo e metas. Seja a inspiração que você busca. Transforme seu corpo, energize sua vida!",
-    image: "../../assets/background1.png"
-  },
-  {
-    title: "Forja de Titans",
-    description: "Desenvolva força, resistência e defina seus músculos com nossos treinos de musculação exclusivos para homens. Projetados para atender aos objetivos masculinos de condicionamento físico, nossos exercícios oferecem resultados notáveis. Transforme seu corpo, alcance seus objetivos e sinta-se no auge da forma física.",
-    image: "../../assets/background2.png"
-  },
-  // Adicione mais conforme necessário
-];
- constructor() {}
+  constructor() {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    // Aqui você pode reagir a mudanças nas entradas do componente, se necessário.
+    // Por exemplo, você pode chamar a função updateContent aqui.
+    if (changes['photoCover'] || changes['contentTitle'] || changes['contentDescription']) {
+      this.updateContent(0); // Você pode ajustar o índice conforme necessário.
+    }
+  }
 
- ngOnDestroy(): void {
-  if (this.slider) this.slider.destroy
- }
- ngAfterViewInit() {
-  this.slider = new KeenSlider(
-    this.sliderRef.nativeElement,
-    {
-      loop: true,
-    },
-    [
-      (slider: KeenSliderInstance) => { // Alterado para KeenSliderInstance
-        let timeout: number | null = null;
-        let mouseOver = false;
+  ngOnDestroy(): void {
+    if (this.slider) this.slider.destroy();
+  }
 
-        function clearNextTimeout() {
-          clearTimeout(timeout!);
-        }
+  ngAfterViewInit(): void {
+    this.slider = new KeenSlider(
+      this.sliderRef.nativeElement,
+      {
+        loop: true,
+      },
+      [
+        (slider: KeenSliderInstance) => {
+          let timeout: number | null = null;
+          let mouseOver = false;
 
-        function nextTimeout() {
-          clearTimeout(timeout!);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 5000) as any;
-        }
+          function clearNextTimeout() {
+            clearTimeout(timeout!);
+          }
 
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
+          function nextTimeout() {
+            clearTimeout(timeout!);
+            if (mouseOver) return;
+            timeout = setTimeout(() => {
+              slider.next();
+            }, 5000) as any;
+          }
 
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
+          slider.on("created", () => {
+            slider.container.addEventListener("mouseover", () => {
+              mouseOver = true;
+              clearNextTimeout();
+            });
+
+            slider.container.addEventListener("mouseout", () => {
+              mouseOver = false;
+              nextTimeout();
+            });
+
             nextTimeout();
           });
 
-          nextTimeout();
-        });
-
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ]
-  );
-}
-
-private updateContent(index: number): void {
-  // Lógica para atualizar o título e a descrição com base no índice
-  // Aqui você pode ter um array de títulos e descrições correspondentes aos slides
-  const titles = ["Title 1", "Title 2"];
-  const descriptions = ["Description 1", "Description 2"];
-
-  const titleElement = document.querySelector('.overlay h1');
-  const descriptionElement = document.querySelector('.overlay p');
-
-  if (titleElement && descriptionElement) {
-    titleElement.textContent = titles[index];
-    descriptionElement.textContent = descriptions[index];
+          slider.on("dragStarted", clearNextTimeout);
+          slider.on("animationEnded", nextTimeout);
+          slider.on("updated", nextTimeout);
+        },
+      ]
+    );
   }
-}
+
+  updateContent(activeIndex: number): void {
+    const activeSlide = this.slideContent[activeIndex];
+
+    // Obtenha referências aos elementos usando @ViewChild
+    const imgElement = this.sliderRef.nativeElement.querySelector('.overlay img') as HTMLImageElement;
+    const h1Element = this.sliderRef.nativeElement.querySelector('.overlay h1');
+    const pElement = this.sliderRef.nativeElement.querySelector('.overlay p');
+
+    if (imgElement && h1Element && pElement && activeSlide) {
+      imgElement.src = activeSlide.photoCover || ''; // Use uma string vazia como fallback
+      h1Element.textContent = activeSlide.contentTitle || '';
+      pElement.textContent = activeSlide.contentDescription || '';
+    }
+  }
+
 }

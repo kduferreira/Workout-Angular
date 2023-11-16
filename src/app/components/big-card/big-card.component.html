@@ -1,24 +1,25 @@
 <div class="keen-slider" #sliderRef>
-  <div class="keen-slider__slide number-slide1">
-
-    <img src="../../assets/background-copy.png" alt="">
-    <div class="overlay">
-    <h1>Cardio Exercise</h1>
-    <p>Cardio Exercise é uma forma dinâmica de atividade física projetada para fortalecer o coração e promover condicionamento físico. Incluindo atividades como corrida e dança aeróbica, esses exercícios queimam calorias, melhoram a circulação e contribuem para o bem-estar mental. Integrar o Cardio Exercise na rotina é fundamental para atingir metas de condicionamento e promover um estilo de vida ativo</p>
+  <div class="keen-slider__slide" *ngFor="let content of slideContent">
+    <div *ngIf="content.type === 'cardio'" class="number-slide1">
+      <img [src]="content.photoCover" alt="">
+      <div class="overlay">
+        <h1>{{ content.contentTitle }}</h1>
+        <p>{{ content.contentDescription }}</p>
+      </div>
+    </div>
+    <div *ngIf="content.type === 'musculacao-feminina'" class="number-slide2">
+      <img [src]="content.photoCover" alt="">
+      <div class="overlay">
+        <h1>{{ content.contentTitle }}</h1>
+        <p>{{ content.contentDescription }}</p>
+      </div>
+    </div>
+    <div *ngIf="content.type === 'musculacao-masculina'" class="number-slide3">
+      <img [src]="content.photoCover" alt="">
+      <div class="overlay">
+        <h1>{{ content.contentTitle }}</h1>
+        <p>{{ content.contentDescription }}</p>
+      </div>
+    </div>
   </div>
-  </div>
-  <div class="keen-slider__slide number-slide2">
-    <img src="../../assets/background1.png" alt="">
-
-  </div>
-  <div class="keen-slider__slide number-slide3">
-    <img src="../../assets/background2.jpeg" alt="">
-
-  </div>
-  <div class="keen-slider__slide number-slide4">
-    <img src="../../assets/background3.jpeg" alt="">
-
-  </div>
-
-
 </div>
