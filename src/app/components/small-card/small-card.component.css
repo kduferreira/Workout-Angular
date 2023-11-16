@@ -1,6 +1,6 @@
 [class^="number-slide"],
 [class*=" number-slide"] {
- 
+
   display: flex;
 
 
@@ -10,6 +10,7 @@
   color: #fff;
   font-weight: 500;
   height: 300px;
+
   max-height: 100vh;
 }
 .keen-slider{
@@ -25,9 +26,7 @@
   margin-left: 17%;
   margin-bottom: 30px;
 }
-.small-card__container{
-  overflow-x: hidden;
-}
+
 
 .number-slide1 img,
 .number-slide2 img,
@@ -40,3 +39,56 @@
   object-fit: cover; /* Para garantir que a imagem cubra completamente o contêiner */
   border-radius: 10px;
 }
+
+.number-slide1,
+.number-slide2,
+.number-slide3,
+.number-slide4,
+.number-slide5,
+.number-slide6 {
+  position: relative;
+}
+
+.number-slide1 h3,
+.number-slide2 h3,
+.number-slide3 h3,
+.number-slide4 h3,
+.number-slide5 h3,
+.number-slide6 h3,
+.number-slide1 p,
+.number-slide2 p,
+.number-slide3 p,
+.number-slide4 p,
+.number-slide5 p,
+.number-slide6 p {
+  position: absolute;
+  width: 100%;
+  text-align: start;
+  margin: 0;
+}
+
+.number-slide1 h3,
+.number-slide2 h3,
+.number-slide3 h3,
+.number-slide4 h3,
+.number-slide5 h3,
+.number-slide6 h3 {
+  font-size: 18px;
+  color: white;
+  top: 90%;
+  transform: translateY(-50%);
+}
+
+
+.number-slide1 p,
+.number-slide2 p,
+.number-slide3 p,
+.number-slide4 p,
+.number-slide5 p,
+.number-slide6 p {
+  font-size: 12px;
+  color: #656565;
+  top: 100%; /* Ajuste conforme necessário para a posição vertical */
+  transform: translateY(-50%);
+}
+

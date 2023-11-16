@@ -4,7 +4,9 @@ import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 @Component({
   selector: 'app-small-card',
   templateUrl: './small-card.component.html',
-  styleUrls: ['./small-card.component.css']
+  styleUrls: ["../../../../node_modules/keen-slider/keen-slider.min.css",
+  './small-card.component.css'
+]
 })
 export class SmallCardComponent implements OnDestroy, AfterViewInit {
   @ViewChild("sliderRef") sliderRef!: ElementRef<HTMLElement>;
