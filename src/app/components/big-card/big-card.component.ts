@@ -55,7 +55,7 @@ export class BigCardComponent implements OnDestroy {
             if (mouseOver) return;
             timeout = setTimeout(() => {
               slider.next();
-            }, 5000) as any;
+            }, 3000) as any;
           }
 
           slider.on("created", () => {
