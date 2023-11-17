@@ -1,6 +1,6 @@
 [class^="number-slide"],
 [class*=" number-slide"] {
-
+ margin-bottom: 40px;
   display: flex;
 
   align-items: center;
@@ -20,7 +20,7 @@
 .small-card__title{
   color: white;
   margin-left: 17%;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 
@@ -45,7 +45,7 @@
 .number-slide6,
 .number-slide7 {
   position: relative;
- 
+
 }
 
 .number-slide1 h3,
@@ -98,3 +98,10 @@
 .small-card__title > h2{
   font-size: 40px;
 }
+
+
+.small-card__container{
+
+  padding-bottom: 20px;
+}
+
