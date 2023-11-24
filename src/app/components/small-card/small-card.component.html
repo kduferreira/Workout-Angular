@@ -1,6 +1,7 @@
 <div class="small-card__container">
   <div class="small-card__title">
     <h2>Popular Exercises</h2>
+    <a href="#">SEE MORE EXERCICES</a>
   </div>
   <div class="keen-slider" #sliderRef>
     <div class="keen-slider__slide" *ngFor="let content of slideContent">
@@ -11,43 +12,65 @@
         <a href="#"><img [src]="content.photo" alt=""></a>
         <h3>{{ content.title }}</h3>
         <p>{{ content.description }}</p>
+        <div class="caixote">
+          <app-small-card-time-video time="10:00"></app-small-card-time-video>
+        </div>
       </div>
 
       <div *ngIf="content.type === 'Push'" class="number-slide2">
         <a href="#"><img [src]="content.photo" alt=""></a>
         <h3>{{ content.title }}</h3>
         <p>{{ content.description }}</p>
+        <div class="caixote">
+          <app-small-card-time-video time="08:30"></app-small-card-time-video>
+        </div>
       </div>
 
       <div *ngIf="content.type === 'stretching'" class=" number-slide3">
         <a href="#"><img [src]="content.photo" alt=""></a>
         <h3>{{ content.title }}</h3>
         <p>{{ content.description }}</p>
+        <div class="caixote">
+          <app-small-card-time-video time="05:20"></app-small-card-time-video>
+        </div>
       </div>
 
       <div *ngIf="content.type === 'weight'" class=" number-slide4">
         <a href="#"><img [src]="content.photo" alt=""></a>
         <h3>{{ content.title }}</h3>
         <p>{{ content.description }}</p>
+        <div class="caixote">
+          <app-small-card-time-video time="28:00"></app-small-card-time-video>
+        </div>
       </div>
 
       <div *ngIf="content.type === 'treadmill'" class=" number-slide5">
         <a href="#"><img [src]="content.photo" alt=""></a>
         <h3>{{ content.title }}</h3>
         <p>{{ content.description }}</p>
+        <div class="caixote">
+          <app-small-card-time-video time="20:00"></app-small-card-time-video>
+        </div>
       </div>
 
       <div *ngIf="content.type === 'crossfit'" class=" number-slide6">
         <a href="#"><a href=""><img [src]="content.photo" alt=""></a></a>
         <h3>{{ content.title }}</h3>
         <p>{{ content.description }}</p>
+        <div class="caixote">
+          <app-small-card-time-video time="13:30"></app-small-card-time-video>
+        </div>
       </div>
 
-      <div *ngIf="content.type === 'backday'" class=" number-slide7">
+      <div *ngIf="content.type === 'backday'" class="number-slide7">
         <a href="#"><img [src]="content.photo" alt=""></a>
         <h3>{{ content.title }}</h3>
         <p>{{ content.description }}</p>
+        <div class="caixote">
+          <app-small-card-time-video time="40:00"></app-small-card-time-video>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
