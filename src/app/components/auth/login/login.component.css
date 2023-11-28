@@ -29,8 +29,15 @@ overflow-y:  hidden;
   width: 100%;
   color: #FFFFFF  ;
   height: 30px;
-  background-color: rgba(24, 28, 31, 0.185);
+  padding:0 5px;
+  margin-top: 10px;
+  background-color: transparent;
+  outline: none;
+  border:none;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 10px;
 }
+
 
 .submit {
   background-color: #00C600;
