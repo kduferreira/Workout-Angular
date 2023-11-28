@@ -1,0 +1,23 @@
+.container__menu-bar {
+  margin-left: 10%;
+  margin-right: 10%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+
+}
+.title a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+

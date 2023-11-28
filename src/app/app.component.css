@@ -1,17 +1,30 @@
 .menu {
-
+  display: flex;
+  flex-direction: column;
 
   margin-top: 40px;
   margin-bottom: 40px;
 
 }
+.content {
+  flex: 1; /* Faz com que o conteúdo ocupe o espaço restante verticalmente */
+}
+
 footer{
   color: white;
   background-color: #272727;
  display: flex;
  justify-content: center;
+   text-align: center;
  border-radius:  8px 8px 0px 0px;
  width: 100%;
  padding-top: 5px;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
 

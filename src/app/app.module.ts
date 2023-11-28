@@ -8,6 +8,8 @@ import { BigCardComponent } from './components/big-card/big-card.component';
 import { SmallCardComponent } from './components/small-card/small-card.component';
 import { HomeComponent } from './page/home/home.component';
 import { SmallCardTimeVideoComponent } from './components/small-card/small-card-time-video/small-card-time-video.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { SmallCardTimeVideoComponent } from './components/small-card/small-card-
     BigCardComponent,
     SmallCardComponent,
     HomeComponent,
-    SmallCardTimeVideoComponent
+    SmallCardTimeVideoComponent,
+    LoginComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
