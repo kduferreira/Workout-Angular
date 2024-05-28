@@ -10,6 +10,8 @@ import { HomeComponent } from './page/home/home.component';
 import { SmallCardTimeVideoComponent } from './components/small-card/small-card-time-video/small-card-time-video.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { IconComponent } from './components/icon/icon.component';
+import { PricingsComponent } from './components/small-card/Pricings/Pricings.component';
+import { ScreenPricingsComponent } from './components/screen-pricings/screen-pricings.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { IconComponent } from './components/icon/icon.component';
     HomeComponent,
     SmallCardTimeVideoComponent,
     LoginComponent,
-    IconComponent
+    IconComponent,
+    PricingsComponent,
+    ScreenPricingsComponent
   ],
   imports: [
     BrowserModule,
